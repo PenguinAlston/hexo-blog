@@ -19,7 +19,7 @@ after_script:
   - git config user.email "forevershao1119@gmail.com"
   - git add .
   - git commit -m "Update docs"
-  - git push --force --quiet "https://${git for travis-ci}@${GH_REF}" master:master
+  - git push --force --quiet "https://${gitio for Travis CI}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:
