@@ -1,16 +1,23 @@
 language: node_js
 node_js: stable
 
+cache:
+    directories:
+        - node_modules
+
+before_install:
+  - npm install -g hexo
+  - npm install -g hexo-cli
+
 # S: Build Lifecycle
 install:
   - npm install
+  - npm install hexo-deployer-git --save
 
-
-#before_script:
- # - npm install -g gulp
 
 script:
-  - hexo g
+  - hexo clean
+  - hexo generate
 
 after_script:
   - cd ./public
@@ -20,6 +27,7 @@ after_script:
   - git add .
   - git commit -m "Update docs"
   - git push --force --quiet "https://${gitio for Travis CI}@${GH_REF}" master:master
+  - hexo deploy
 # E: Build LifeCycle
 
 branches:
