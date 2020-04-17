@@ -20,14 +20,14 @@ script:
   - hexo generate
 
 after_script:
-  - git clone ${GH_REF} pub_wb
-  - cp -rf public/* pub_wb/
-  - cd pub_wb
+  - pwd
+  - cd ./public
+  - git init
   - git config user.name "penguinalston"
   - git config user.email "forevershao1119@gmail.com"
   - git add .
   - git commit -m "Travis CI Auto Builder :$(date '+%Y-%m-%d %H:%M:%S' -d '+8 hour')"
-  - git push origin master
+  - git push --quiet --force https://PenguinAlston:${git for Travis CI}@github.com/PenguinAlston/penguinalston.github.io.git master:master
 # E: Build LifeCycle
 
 branches:
