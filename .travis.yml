@@ -2,6 +2,7 @@ language: node_js
 node_js: stable
 
 cache:
+    apt: true
     directories:
         - node_modules
 
@@ -20,14 +21,14 @@ script:
   - hexo generate
 
 after_script:
-  - cd ./public
-  - git init
+  - git clone ${GH_REF} pub_wb
+  - cp -rf public/* pub_wb/
+  - cd pub_wb
   - git config user.name "penguinalston"
   - git config user.email "forevershao1119@gmail.com"
   - git add .
-  - git commit -m "Update docs"
-  - git push --force --quiet "https://${gitio for Travis CI}@${GH_REF}" master:master
-  - hexo deploy
+  - git commit -m "Travis CI Auto Builder :$(date '+%Y-%m-%d %H:%M:%S' -d '+8 hour')"
+  - git push origin master
 # E: Build LifeCycle
 
 branches:
@@ -35,4 +36,5 @@ branches:
     - master
 env:
  global:
-   - GH_REF: github.com/PenguinAlston/penguinalston.github.io.git
+   - GH_REF: https://PenguinAlston:${git for Travis CI}@github.com/PenguinAlston/penguinalston.github.io.git #设置GH_REF，注意更改yourname,GITHUB_TOKEN:就是我们在travis-ci仓库中配置的环境变量
+   #https://github.com/PenguinAlston/penguinalston.github.io.git
