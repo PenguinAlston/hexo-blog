@@ -36,7 +36,7 @@ new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
-  enable: true # Open external links in new tab
+  enable: false # Open external links in new tab
   field: site # Apply to the whole site
   exclude: ''
 filename_case: 0
@@ -93,6 +93,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+#theme: hexo-theme-matery-master
 theme: next-reloaded
 
 # Deployment
@@ -101,3 +102,17 @@ deploy:
   type: git
   repo: https://github.com/PenguinAlston/penguinalston.github.io.git 
   branch: master
+# Next Theme Count Time Setting
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  awl: 5
+  wpm: 200
+# Local Search
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
