@@ -11,11 +11,11 @@ cache:
 install:
   - npm install
 
-before_script:
-  - npm install -g gulp
+#before_script:
+  #- npm install -g gulp
 
 script:
-  - gulp dist
+  - hexo g
 
 after_script:
   - cd   
@@ -24,8 +24,8 @@ after_script:
   - git config user.email "penguinalston@gmail.com"
   - git add .
   - git commit -m "Update docs"
-  - git push --force --quiet "https://${gitio for Travis CI}@${GH_REF}" master:master
-# E: Build LifeCycle
+  - git push --force --quiet "https://${travisci}@${GH_REF}" master:master
+
 
 branches:
   only:
